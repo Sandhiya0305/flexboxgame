@@ -32,7 +32,7 @@ body {
   display: flex;
   min-width: 600px;
   margin: 0;
-  background-color: #43A047;
+  background-color: #9370DB;
   color: rgba(255, 255, 255, 0.8);
   font-family: 'PT Sans', sans-serif;
 }
@@ -41,7 +41,7 @@ body {
   width: 50%;
   min-width: 300px;
   padding: 2em;
-  background-color: #43A047;
+  background-color: #9370DB;
   font-size: 15px;
 }
 
@@ -482,79 +482,79 @@ button:not(.disabled):hover {
 #background {
   z-index: 10;
   border-radius: 0 0 0 10px;
-  background-color: #1F5768;
+  background-color: #4B0082;
 }
 
 #pond {
   z-index: 20;
 }
 
-.lilypad,
-.frog {
+.flower,
+.fairy {
   position: relative;
   width: 20%;
   height: 20%;
   overflow: hidden;
 }
 
-.frog:nth-child(1) {
+.fairy:nth-child(1) {
   view-transition-name: --frog1;
 }
 
-.frog:nth-child(2) {
-  view-transition-name: --frog2;
+.fairy:nth-child(2) {
+  view-transition-name: --fairy2;
 }
 
-.frog:nth-child(3) {
-  view-transition-name: --frog3;
+.fairy:nth-child(3) {
+  view-transition-name: --fairy3;
 }
 
-.frog:nth-child(4) {
-  view-transition-name: --frog4;
+.fairy:nth-child(4) {
+  view-transition-name: --fairy4;
 }
 
-.frog:nth-child(5) {
-  view-transition-name: --frog5;
+.fairy:nth-child(5) {
+  view-transition-name: --fairy5;
 }
 
-.frog:nth-child(6) {
-  view-transition-name: --frog6;
+.fairy:nth-child(6) {
+  view-transition-name: --fairy6;
 }
 
-.frog:nth-child(7) {
-  view-transition-name: --frog7;
+.fairy:nth-child(7) {
+  view-transition-name: --fairy7;
 }
 
-.frog:nth-child(8) {
-  view-transition-name: --frog8;
+.fairy:nth-child(8) {
+  view-transition-name: --fairy8;
 }
 
-.frog:nth-child(9) {
-  view-transition-name: --frog9;
+.fairy:nth-child(9) {
+  view-transition-name: --fairy9;
 }
 
-.frog:nth-child(10) {
-  view-transition-name: --frog10;
+.fairy:nth-child(10) {
+  view-transition-name: --fairy10;
 }
 
-.frog:nth-child(11) {
-  view-transition-name: --frog11;
+.fairy:nth-child(11) {
+  view-transition-name: --fairy11;
 }
 
-.frog:nth-child(12) {
-  view-transition-name: --frog12;
+.fairy:nth-child(12) {
+  view-transition-name: --fairy12;
 }
 
-.frog:nth-child(13) {
-  view-transition-name: --frog13;
+.fairy:nth-child(13) {
+  view-transition-name: --fairy13;
 }
 
-.frog:nth-child(14) {
-  view-transition-name: --frog14;
+.fairy:nth-child(14) {
+  view-transition-name: --fairy14;
 }
 
-.frog:nth-child(15) {
-  view-transition-name: --frog15;
+.fairy:nth-child(15) {
+  view-transition-name: --fairy15;
 }
 
 ::view-transition-old(--frog1),
@@ -585,41 +585,69 @@ button:not(.disabled):hover {
 ::view-transition-new(--frog13),
 ::view-transition-old(--frog14),
 ::view-transition-new(--frog14),
-::view-transition-old(--frog15),
-::view-transition-new(--frog15), {
+::view-transition-old(--fairy1),
+::view-transition-new(--fairy1),
+::view-transition-old(--fairy2),
+::view-transition-new(--fairy2),
+::view-transition-old(--fairy3),
+::view-transition-new(--fairy3),
+::view-transition-old(--fairy4),
+::view-transition-new(--fairy4),
+::view-transition-old(--fairy5),
+::view-transition-new(--fairy5),
+::view-transition-old(--fairy6),
+::view-transition-new(--fairy6),
+::view-transition-old(--fairy7),
+::view-transition-new(--fairy7),
+::view-transition-old(--fairy8),
+::view-transition-new(--fairy8),
+::view-transition-old(--fairy9),
+::view-transition-new(--fairy9),
+::view-transition-old(--fairy10),
+::view-transition-new(--fairy10),
+::view-transition-old(--fairy11),
+::view-transition-new(--fairy11),
+::view-transition-old(--fairy12),
+::view-transition-new(--fairy12),
+::view-transition-old(--fairy13),
+::view-transition-new(--fairy13),
+::view-transition-old(--fairy14),
+::view-transition-new(--fairy14),
+::view-transition-old(--fairy15),
+::view-transition-new(--fairy15) {
   height: 100%;
 }
 
-.frog.bounceOutUp {
+.fairy.bounceOutUp {
   -webkit-animation-delay: .6s;
   -moz-animation-delay: .6s;
   -ms-animation-delay: .6s;
   animation-delay: .6s;
 }
 
-.frog .bg.bounce {
+.fairy .bg.bounce {
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -ms-animation-duration: 2s;
   animation-duration: 2s;
 }
 
-.frog.yellow .bg.bounce {
+.fairy.yellow .bg.bounce {
   -webkit-animation-delay: .3s;
   -moz-animation-delay: .3s;
   -ms-animation-delay: .3s;
   animation-delay: .3s;
 }
 
-.frog.red .bg.bounce {
+.fairy.red .bg.bounce {
   -webkit-animation-delay: .6s;
   -moz-animation-delay: .6s;
   -ms-animation-delay: .6s;
   animation-delay: .6s;
 }
 
-.lilypad .bg,
-.frog .bg {
+.flower .bg,
+.fairy .bg {
   width: 100%;
   height: 100%;
   background-position: center center;
@@ -627,55 +655,55 @@ button:not(.disabled):hover {
   background-repeat: no-repeat;
 }
 
-.frog .bg {
+.fairy .bg {
   background-size: 60% 60%;
 }
 
-.lilypad.green .bg {
-  background-image: url("../images/lilypad-green.svg");
+.flower.green .bg {
+  background-image: url("../images/flower-green.svg");
 }
 
-.lilypad.green.cb-friendly .bg {
-  background-image: url("../images/lilypad-green-color-assist.svg");
+.flower.green.cb-friendly .bg {
+  background-image: url("../images/flower-green-color-assist.svg");
 }
 
-.lilypad.red .bg {
-  background-image: url("../images/lilypad-red.svg");
+.flower.red .bg {
+  background-image: url("../images/flower-red.svg");
 }
 
-.lilypad.red.cb-friendly .bg {
-  background-image: url("../images/lilypad-red-color-assist.svg");
+.flower.red.cb-friendly .bg {
+  background-image: url("../images/flower-red-color-assist.svg");
 }
 
-.lilypad.yellow .bg {
-  background-image: url("../images/lilypad-yellow.svg");
+.flower.yellow .bg {
+  background-image: url("../images/flower-yellow.svg");
 }
-.lilypad.yellow.cb-friendly .bg {
-  background-image: url("../images/lilypad-yellow-color-assist.svg");
-}
-
-.frog.green .bg {
-  background-image: url("../images/frog-green.svg");
+.flower.yellow.cb-friendly .bg {
+  background-image: url("../images/flower-yellow-color-assist.svg");
 }
 
-.frog.green.cb-friendly .bg {
-  background-image: url("../images/frog-green-color-assist.svg");
+.fairy.green .bg {
+  background-image: url("../images/fairy-green.svg");
 }
 
-.frog.red .bg {
-  background-image: url("../images/frog-red.svg");
+.fairy.green.cb-friendly .bg {
+  background-image: url("../images/fairy-green-color-assist.svg");
 }
 
-.frog.red.cb-friendly .bg {
-  background-image: url("../images/frog-red-color-assist.svg");
+.fairy.red .bg {
+  background-image: url("../images/fairy-red.svg");
 }
 
-.frog.yellow .bg {
-  background-image: url("../images/frog-yellow.svg");
+.fairy.red.cb-friendly .bg {
+  background-image: url("../images/fairy-red-color-assist.svg");
 }
 
-.frog.yellow.cb-friendly .bg {
-  background-image: url("../images/frog-yellow-color-assist.svg");
+.fairy.yellow .bg {
+  background-image: url("../images/fairy-yellow.svg");
+}
+
+.fairy.yellow.cb-friendly .bg {
+  background-image: url("../images/fairy-yellow-color-assist.svg");
 }
 
 .wrap {

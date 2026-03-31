@@ -34,7 +34,7 @@ var game = {
       $('#code').focus();
 
       if ($(this).hasClass('disabled')) {
-        if (!$('.frog').hasClass('animated')) {
+        if (!$('.fairy').hasClass('animated')) {
           game.tryagain();
         }
 
@@ -42,7 +42,7 @@ var game = {
       }
 
       $(this).removeClass('animated animation');
-      $('.frog').addClass('animated bounceOutUp');
+      $('.fairy').addClass('animated bounceOutUp');
       $('.arrow, #next').addClass('disabled');
 
       setTimeout(function() {
@@ -151,9 +151,9 @@ var game = {
       game.colorblind = $('input:checked', '#colorblind').val();
 
       if (game.colorblind == 'true') {
-        $('.lilypad, .frog').addClass('cb-friendly');
+        $('.flower, .fairy').addClass('cb-friendly');
       } else {
-        $('.lilypad, .frog').removeClass('cb-friendly');
+        $('.flower, .fairy').removeClass('cb-friendly');
       }
     });
 
@@ -297,14 +297,14 @@ var game = {
       var c = string.charAt(i);
       var color = colors[c];
 
-      var lilypad = $('<div/>').addClass('lilypad ' + color + (this.colorblind == 'true' ? ' cb-friendly' : '')).data('color', color);
-      var frog = $('<div/>').addClass('frog ' + color + (this.colorblind == 'true' ? ' cb-friendly' : '')).data('color', color);
+      var flower = $('<div/>').addClass('flower ' + color + (this.colorblind == 'true' ? ' cb-friendly' : '')).data('color', color);
+      var fairy = $('<div/>').addClass('fairy ' + color + (this.colorblind == 'true' ? ' cb-friendly' : '')).data('color', color);
 
-      $('<div/>').addClass('bg').css(game.transform()).appendTo(lilypad);
-      $('<div/>').addClass('bg animated pulse infinite').appendTo(frog);
+      $('<div/>').addClass('bg').css(game.transform()).appendTo(flower);
+      $('<div/>').addClass('bg animated pulse infinite').appendTo(fairy);
 
-      $('#background').append(lilypad);
-      $('#pond').append(frog);
+      $('#background').append(flower);
+      $('#pond').append(fairy);
     }
 
     var classes = level.classes;
@@ -399,21 +399,21 @@ var game = {
 
   compare: function() {
     var level = levels[game.level];
-    var lilypads = {};
-    var frogs = {};
+    var flowers = {};
+    var fairies = {};
     var correct = true;
 
-    $('.frog').each(function() {
+    $('.fairy').each(function() {
       var position = $(this).position();
       position.top = Math.floor(position.top);
       position.left = Math.floor(position.left);
 
       var key = JSON.stringify(position);
       var val = $(this).data('color');
-      frogs[key] = val;
+      fairies[key] = val;
     });
 
-    $('.lilypad').each(function() {
+    $('.flower').each(function() {
       var position = $(this).position();
       position.top = Math.floor(position.top);
       position.left = Math.floor(position.left);
@@ -421,7 +421,7 @@ var game = {
       var key = JSON.stringify(position);
       var val = $(this).data('color');
 
-      if (!(key in frogs) || frogs[key] !== val) {
+      if (!(key in fairies) || fairies[key] !== val) {
         correct = false;
       }
     });
@@ -456,7 +456,7 @@ var game = {
     $('#editor').hide();
     $('#code').val(solution);
     $('#share').show();
-    $('.frog .bg').removeClass('pulse').addClass('bounce');
+    $('.fairy .bg').removeClass('pulse').addClass('bounce');
   },
 
   transform: function() {

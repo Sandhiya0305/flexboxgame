@@ -112,7 +112,7 @@ var messages = {
     'no': 'Neste'
   },
   labelFooter: {
-    'en': 'Flexbox Froggy is created by',
+    'en': 'Flexbox Fairy is created by',
     'af': 'Flexbox Froggy is ontwerp deur',
     'he': 'Flexbox Froggy נוצר על ידי',
     'ro': 'Flexbox Froggy este creat de',
@@ -280,7 +280,7 @@ var messages = {
     'no': 'av'
   },
   title: {
-    'en': 'Flexbox Froggy - A game for learning CSS flexbox',
+    'en': 'Flexbox Fairy - A game for learning CSS flexbox',
     'af': 'Flexbox Froggy - `n Spel vir die leer van CSS flexbox',
     'he': 'Flexbox Froggy - משחק ללמידת CSS flexbox',
     'ro': 'Flexbox Froggy - Un joc pentru a învăța CSS flexbox',

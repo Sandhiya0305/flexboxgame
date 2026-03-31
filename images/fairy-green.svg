@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="210px" height="158px" viewBox="0 0 210 210" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>fairy-green</title>
+    <desc>Fairy character in green</desc>
+    <defs>
+        <linearGradient id="wingGradientGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#90EE90;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#228B22;stop-opacity:0.6" />
+        </linearGradient>
+    </defs>
+    <g transform="translate(0, 20)">
+        <!-- Left Wing -->
+        <ellipse cx="60" cy="80" rx="45" ry="60" fill="url(#wingGradientGreen)" transform="rotate(-20, 60, 80)" />
+        <ellipse cx="55" cy="75" rx="30" ry="40" fill="url(#wingGradientGreen)" transform="rotate(-15, 55, 75)" opacity="0.7" />
+        
+        <!-- Right Wing -->
+        <ellipse cx="150" cy="80" rx="45" ry="60" fill="url(#wingGradientGreen)" transform="rotate(20, 150, 80)" />
+        <ellipse cx="155" cy="75" rx="30" ry="40" fill="url(#wingGradientGreen)" transform="rotate(15, 155, 75)" opacity="0.7" />
+        
+        <!-- Body -->
+        <ellipse cx="105" cy="100" rx="25" ry="35" fill="#4CC24F" />
+        
+        <!-- Head -->
+        <circle cx="105" cy="55" r="28" fill="#69DA6B" />
+        
+        <!-- Eyes -->
+        <circle cx="95" cy="50" r="8" fill="#FFFFFF" />
+        <circle cx="115" cy="50" r="8" fill="#FFFFFF" />
+        <circle cx="95" cy="50" r="5" fill="#000000" />
+        <circle cx="115" cy="50" r="5" fill="#000000" />
+        
+        <!-- Smile -->
+        <path d="M 95 65 Q 105 75 115 65" stroke="#228B22" stroke-width="3" fill="none" />
+        
+        <!-- Antenna -->
+        <line x1="95" y1="30" x2="85" y2="15" stroke="#4CC24F" stroke-width="3" />
+        <circle cx="85" cy="15" r="5" fill="#69DA6B" />
+        <line x1="115" y1="30" x2="125" y2="15" stroke="#4CC24F" stroke-width="3" />
+        <circle cx="125" cy="15" r="5" fill="#69DA6B" />
+        
+        <!-- Sparkles -->
+        <circle cx="50" cy="50" r="3" fill="#FFFF00" opacity="0.8" />
+        <circle cx="160" cy="50" r="3" fill="#FFFF00" opacity="0.8" />
+        <circle cx="40" cy="100" r="2" fill="#FFFF00" opacity="0.6" />
+        <circle cx="170" cy="100" r="2" fill="#FFFF00" opacity="0.6" />
+    </g>
+</svg>
