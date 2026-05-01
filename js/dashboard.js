@@ -118,7 +118,8 @@ var dashboard = {
   initReferencePage: function () {
     if (typeof docs === 'undefined') return;
 
-    // Short plain-text descriptions for each property
+    // propDesc values contain only hardcoded HTML from this source file
+    // (no user-controlled data), so innerHTML use here is safe.
     var propDesc = {
       'justify-content': 'Aligns flex items along the <strong>main axis</strong> (horizontal when <code>flex-direction: row</code>). Distributes extra free space between or around items.',
       'align-items':     'Aligns flex items along the <strong>cross axis</strong> (vertical by default) within a single flex line. Acts as the default <code>align-self</code> for all children.',
@@ -154,9 +155,11 @@ var dashboard = {
         var $chip = $('<span class="ref-value-chip"></span>').text(val);
 
         if (!isPlaceholder) {
-          // Clicking a value chip applies it to the current editor field
+          // Clicking a value chip applies it to the current editor field.
+          // Pass the full value string (e.g. 'row nowrap') so shorthand
+          // properties like flex-flow receive their complete value.
           $chip.on('click', function () {
-            game.writeCSS(prop, val.split(' ')[0]);
+            game.writeCSS(prop, val);
             game.check();
             dashboard.showPage('game');
           });
@@ -211,10 +214,8 @@ var dashboard = {
 };
 
 $(document).ready(function () {
-  // Initialise after game.js's $(document).ready has run.
-  // Both handlers are queued in the same microtask turn, so a zero-delay
-  // setTimeout ensures game.start() has completed before we read game state.
-  setTimeout(function () {
-    dashboard.init();
-  }, 0);
+  // dashboard.js is loaded after game.js in index.html, so jQuery queues
+  // this handler after game.js's $(document).ready(game.start), ensuring
+  // game state is fully initialised before dashboard.init() reads it.
+  dashboard.init();
 });
