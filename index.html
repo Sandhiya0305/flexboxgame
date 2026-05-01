@@ -21,180 +21,307 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <section id="sidebar">
-      <div class="header">
-        <div>
-          <h1 class="title">Flexbox Fairy</h1>
-        </div>
-        <div id="level-counter">
-          <span class="arrow left">
-            <span class="triangle"></span>
-          </span>
-          <span id="level-indicator">
-            <span id="labelLevel" class="translate">Level</span>
-            <span class="current">1</span>
-            <span id="labelOf" class="translate">of</span>
-            <span class="total">1</span>
-            <span class="caret">▾</span>
-          </span>
-          <span class="arrow right">
-            <span class="triangle"></span>
-          </span>
-          <div id="levelsWrapper" class="tooltip">
-            <div id="levels"></div>
-            <div id="labelReset" class="translate">Reset</div>
+
+    <!-- ═══════════════════════════════════════════════
+         TOP NAVIGATION BAR
+         ═══════════════════════════════════════════════ -->
+    <nav id="topnav" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <img src="images/fairy-green.svg" alt="" class="nav-logo" aria-hidden="true">
+        <span class="nav-title">Flexbox Fairy</span>
+      </div>
+
+      <div class="nav-tabs" role="tablist" aria-label="Dashboard sections">
+        <button class="nav-tab active" data-page="game"
+                role="tab" aria-selected="true" aria-controls="page-game" id="tab-game">
+          <span class="tab-icon" aria-hidden="true">🎮</span>
+          <span>Game</span>
+        </button>
+        <button class="nav-tab" data-page="progress"
+                role="tab" aria-selected="false" aria-controls="page-progress" id="tab-progress">
+          <span class="tab-icon" aria-hidden="true">📊</span>
+          <span>Progress</span>
+        </button>
+        <button class="nav-tab" data-page="reference"
+                role="tab" aria-selected="false" aria-controls="page-reference" id="tab-reference">
+          <span class="tab-icon" aria-hidden="true">📚</span>
+          <span>Reference</span>
+        </button>
+      </div>
+
+      <div class="nav-controls">
+        <select id="language" title="Select language" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="nl">Nederlands</option>
+          <option value="pt-br">Português</option>
+          <option value="ca">Català</option>
+          <option value="gl">Galego</option>
+          <option value="it">Italiano</option>
+          <option value="sv">Svenska</option>
+          <option value="no">Norsk</option>
+          <option value="fi">Suomi</option>
+          <option value="da">Dansk</option>
+          <option value="pl">Polski</option>
+          <option value="cs">Česky</option>
+          <option value="sk">Slovenčina</option>
+          <option value="hu">Magyar</option>
+          <option value="ro">Română</option>
+          <option value="bg">Български</option>
+          <option value="et">Eesti</option>
+          <option value="lv">Latviešu</option>
+          <option value="lt">Lietuvių</option>
+          <option value="uk">Українська</option>
+          <option value="ru">Русский</option>
+          <option value="sr">Српски</option>
+          <option value="bs">Bosanski</option>
+          <option value="hr">Hrvatski</option>
+          <option value="mk">Македонски</option>
+          <option value="mn">Монгол хэл</option>
+          <option value="el">Ελληνικά</option>
+          <option value="tr">Türkçe</option>
+          <option value="az">Azərbaycanca</option>
+          <option value="he">עברית</option>
+          <option value="ar">العربية</option>
+          <option value="fa">فارسی</option>
+          <option value="hi">हिंदी</option>
+          <option value="bn">বাংলা</option>
+          <option value="te">తెలుగు</option>
+          <option value="ta">தமிழ்</option>
+          <option value="gj">ગુજરાતી</option>
+          <option value="si">සිංහල</option>
+          <option value="ml">മലയാളം</option>
+          <option value="np">नेपाली</option>
+          <option value="zh-cn">简体中文</option>
+          <option value="zh-tw">繁體中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="th">ภาษาไทย</option>
+          <option value="my">မြန်မာ</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="af">Afrikaans</option>
+          <option value="yo">Yoruba</option>
+          <option value="eo">Esperanto</option>
+        </select>
+
+        <!-- Settings panel: #labelSettings triggers #settings .tooltip via game.js -->
+        <div id="settings">
+          <button id="labelSettings" class="icon-btn" title="Settings" aria-label="Toggle settings panel">⚙</button>
+          <div class="tooltip" role="dialog" aria-label="Settings">
+            <section>
+              <h4 id="labelDifficulty" class="translate">Difficulty</h4>
+              <form id="difficulty">
+                <div>
+                  <input type="radio" name="difficulty" id="difficultyEasy" value="easy" checked>
+                  <label id="labelDifficultyEasy" for="difficultyEasy" class="translate">Beginner</label>
+                </div>
+                <div>
+                  <input type="radio" name="difficulty" id="difficultyMedium" value="medium">
+                  <label id="labelDifficultyMedium" for="difficultyMedium" class="translate">Intermediate - No Directions</label>
+                </div>
+                <div>
+                  <input type="radio" name="difficulty" id="difficultyHard" value="hard">
+                  <label id="labelDifficultyHard" for="difficultyHard" class="translate">Expert - No Directions &amp; Random Levels</label>
+                </div>
+              </form>
+            </section>
+            <section>
+              <h4 id="labelColorblind" class="translate">Colorblind Mode</h4>
+              <form id="colorblind">
+                <div>
+                  <input type="radio" name="colorblind" id="colorblindOff" value="false" checked>
+                  <label id="labelColorblindOff" for="colorblindOff" class="translate">Off</label>
+                </div>
+                <div>
+                  <input type="radio" name="colorblind" id="colorblindOn" value="true">
+                  <label id="labelColorblindOn" for="colorblindOn" class="translate">On</label>
+                </div>
+              </form>
+            </section>
           </div>
         </div>
       </div>
-      <p id="instructions"></p>
-      <div id="editor">
-        <div id="css">
-          <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
-          <pre id="before"></pre>
-          <textarea id="code" autofocus autocapitalize="none" spellcheck="false"></textarea>
-          <pre id="after"></pre>
-        </div>
-        <button id="next" class="translate">Next</button>
-      </div>
-      <div id="share">
-        <div class="games">
-          <a target="_blank" data-title="Grid Garden" href="https://codepip.com/games/grid-garden/">
-            <img src="images/games/grid-garden.png" alt="Grid Garden">
-          </a>
-          <a target="_blank" data-title="Anchoreum" href="https://codepip.com/games/anchoreum/">
-            <img src="images/games/anchoreum.png" alt="Anchoreum">
-          </a>
-          <a target="_blank" data-title="Disarray" href="https://codepip.com/games/disarray/">
-            <img src="images/games/disarray.png" alt="Disarray">
-          </a>
-          <a target="_blank" data-title="CSS Scoops" href="https://codepip.com/games/css-scoops/">
-            <img src="images/games/css-scoops.png" alt="CSS Scoops">
-          </a>
-        </div>
-      </div>
+    </nav>
 
-      <div class="settings">
-        <section>
-          <h4 id="labelLanguage" class="translate">Language</h4>
-          <select id="language">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="nl">Nederlands</option>
-            <option value="pt-br">Português</option>
-            <option value="ca">Català</option>
-            <option value="gl">Galego</option>
-            <option value="it">Italiano</option>
-            <option value="sv">Svenska</option>
-            <option value="no">Norsk</option>
-            <option value="fi">Suomi</option>
-            <option value="da">Dansk</option>
-            <option value="pl">Polski</option>
-            <option value="cs">Česky</option>
-            <option value="sk">Slovenčina</option>
-            <option value="hu">Magyar</option>
-            <option value="ro">Română</option>
-            <option value="bg">Български</option>
-            <option value="et">Eesti</option>
-            <option value="lv">Latviešu</option>
-            <option value="lt">Lietuvių</option>
-            <option value="uk">Українська</option>
-            <option value="ru">Русский</option>
-            <option value="sr">Српски</option>
-            <option value="bs">Bosanski</option>
-            <option value="hr">Hrvatski</option>
-            <option value="mk">Македонски</option>
-            <option value="mn">Монгол хэл</option>
-            <option value="el">Ελληνικά</option>
-            <option value="tr">Türkçe</option>
-            <option value="az">Azərbaycanca</option>
-            <option value="he">עברית</option>
-            <option value="ar">العربية</option>
-            <option value="fa">فارسی</option>
-            <option value="hi">हिंदी</option>
-            <option value="bn">বাংলা</option>
-            <option value="te">తెలుగు</option>
-            <option value="ta">தமிழ்</option>
-            <option value="gj">ગુજરાતી</option>
-            <option value="si">සිංහල</option>
-            <option value="ml">മലയാളം</option>
-            <option value="np">नेपाली</option>
-            <option value="zh-cn">简体中文</option>
-            <option value="zh-tw">繁體中文</option>
-            <option value="ja">日本語</option>
-            <option value="ko">한국어</option>
-            <option value="vi">Tiếng Việt</option>
-            <option value="th">ภาษาไทย</option>
-            <option value="my">မြန်မာ</option>
-            <option value="id">Bahasa Indonesia</option>
-            <option value="af">Afrikaans</option>
-            <option value="yo">Yoruba</option>
-            <option value="eo">Esperanto</option>
-          </select>
-        </section>
-        <section>
-          <h4 id="labelDifficulty" class="translate">Difficulty</h4>
-          <form id="difficulty">
-            <div>
-              <input type="radio" name="difficulty" id="difficultyEasy" value="easy" checked>
-              <label id="labelDifficultyEasy" for="difficultyEasy" class="translate">Beginner</label>
-            </div>
-            <div>
-              <input type="radio" name="difficulty" id="difficultyMedium" value="medium">
-              <label id="labelDifficultyMedium" for="difficultyMedium" class="translate">Intermediate - No Directions</label>
-            </div>
-            <div>
-              <input type="radio" name="difficulty" id="difficultyHard" value="hard">
-              <label id="labelDifficultyHard" for="difficultyHard" class="translate">Expert - No Directions &amp; Random Levels</label>
-            </div>
-          </form>
-        </section>
-        <section>
-          <h4 id="labelColorblind" class="translate">Colorblind Mode</h4>
-          <form id="colorblind">
-            <div>
-              <div>
-                <input type="radio" name="colorblind" id="colorblindOff" value="false" checked>
-                <label id="labelColorblindOff" for="colorblindOff" class="translate">Off</label>
-              </div>
-              <div>
-                <input type="radio" name="colorblind" id="colorblindOn" value="true">
-                <label id="labelColorblindOn" for="colorblindOn" class="translate">On</label>
-              </div>
-          </form>
-        </section>
+    <!-- ═══════════════════════════════════════════════
+         STATS BAR  — always-visible progress summary
+         ═══════════════════════════════════════════════ -->
+    <div id="stats-bar" role="status" aria-label="Game progress summary">
+      <div class="stat-item">
+        <span class="stat-label">Level</span>
+        <span class="stat-value" id="stats-level-display">1</span>
       </div>
+      <div class="stat-item stat-progress-item">
+        <span class="stat-label">Progress</span>
+        <div id="stats-progress-track"
+             role="progressbar" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0">
+          <div id="stats-progress-fill"></div>
+        </div>
+        <span class="stat-value">
+          <span id="stats-solved-count">0</span> / <span id="stats-total-count">24</span>
+        </span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Mode</span>
+        <span class="stat-value stat-badge" id="stats-mode">Beginner</span>
+      </div>
+    </div>
 
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9569380550956585" crossorigin="anonymous"></script>
-      <!-- Flexbox Froggy Banner -->
-      <ins class="adsbygoogle"
-           style="display:inline-block;width:728px;height:90px;max-width:100%;margin-inline:auto"
-           data-ad-client="ca-pub-9569380550956585"
-           data-ad-slot="3755658935"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </section>
-    <section id="view">
-      <div id="board">
-        <div id="pond">
+    <!-- ═══════════════════════════════════════════════
+         MAIN DASHBOARD
+         ═══════════════════════════════════════════════ -->
+    <div id="dashboard">
+
+      <!-- ─────────────────────────────────────────────
+           PAGE: GAME  (default active)
+           ───────────────────────────────────────────── -->
+      <div id="page-game" class="page active"
+           role="tabpanel" aria-labelledby="tab-game">
+
+        <section id="sidebar">
+          <div class="header">
+            <div>
+              <h1 class="title">Flexbox Fairy</h1>
+            </div>
+            <div id="level-counter">
+              <span class="arrow left">
+                <span class="triangle"></span>
+              </span>
+              <span id="level-indicator">
+                <span id="labelLevel" class="translate">Level</span>
+                <span class="current">1</span>
+                <span id="labelOf" class="translate">of</span>
+                <span class="total">1</span>
+                <span class="caret">▾</span>
+              </span>
+              <span class="arrow right">
+                <span class="triangle"></span>
+              </span>
+              <div id="levelsWrapper" class="tooltip">
+                <div id="levels"></div>
+                <div id="labelReset" class="translate">Reset</div>
+              </div>
+            </div>
+          </div>
+          <p id="instructions"></p>
+          <div id="editor">
+            <div id="css">
+              <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+              <pre id="before"></pre>
+              <textarea id="code" autofocus autocapitalize="none" spellcheck="false"></textarea>
+              <pre id="after"></pre>
+            </div>
+            <button id="next" class="translate">Next</button>
+          </div>
+          <div id="share">
+            <div class="games">
+              <a target="_blank" data-title="Grid Garden" href="https://codepip.com/games/grid-garden/">
+                <img src="images/games/grid-garden.png" alt="Grid Garden">
+              </a>
+              <a target="_blank" data-title="Anchoreum" href="https://codepip.com/games/anchoreum/">
+                <img src="images/games/anchoreum.png" alt="Anchoreum">
+              </a>
+              <a target="_blank" data-title="Disarray" href="https://codepip.com/games/disarray/">
+                <img src="images/games/disarray.png" alt="Disarray">
+              </a>
+              <a target="_blank" data-title="CSS Scoops" href="https://codepip.com/games/css-scoops/">
+                <img src="images/games/css-scoops.png" alt="CSS Scoops">
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="view">
+          <div id="board">
+            <div id="pond"></div>
+            <div id="background"></div>
+          </div>
+        </section>
+
+      </div><!-- /#page-game -->
+
+      <!-- ─────────────────────────────────────────────
+           PAGE: PROGRESS
+           ───────────────────────────────────────────── -->
+      <div id="page-progress" class="page"
+           role="tabpanel" aria-labelledby="tab-progress">
+        <div class="dash-container">
+          <div class="dash-section-title">
+            <h2>Your Progress</h2>
+            <p>Track your CSS flexbox learning journey across all levels.</p>
+          </div>
+
+          <div class="stat-cards-row">
+            <div class="dash-card stat-card">
+              <div class="card-icon">🏆</div>
+              <div class="card-stat-value" id="prog-solved">0</div>
+              <div class="card-stat-label">Levels Solved</div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="card-icon">📋</div>
+              <div class="card-stat-value" id="prog-total">24</div>
+              <div class="card-stat-label">Total Levels</div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="card-icon">⚡</div>
+              <div class="card-stat-value" id="prog-pct">0%</div>
+              <div class="card-stat-label">Completion</div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="card-icon" id="prog-mode-icon">🌱</div>
+              <div class="card-stat-value" id="prog-mode">Beginner</div>
+              <div class="card-stat-label">Difficulty Mode</div>
+            </div>
+          </div>
+
+          <div class="dash-card level-map-card">
+            <div class="card-header">Level Map</div>
+            <div id="progress-level-grid" class="level-grid-container"></div>
+          </div>
         </div>
-        <div id="background">
+      </div><!-- /#page-progress -->
+
+      <!-- ─────────────────────────────────────────────
+           PAGE: REFERENCE
+           ───────────────────────────────────────────── -->
+      <div id="page-reference" class="page"
+           role="tabpanel" aria-labelledby="tab-reference">
+        <div class="dash-container">
+          <div class="dash-section-title">
+            <h2>CSS Flexbox Reference</h2>
+            <p>All flexbox properties used in this game. Click any value chip to apply it directly in the editor.</p>
+          </div>
+          <div id="reference-grid" class="ref-grid"></div>
         </div>
-      </div>
-    </section>
+      </div><!-- /#page-reference -->
+
+    </div><!-- /#dashboard -->
+
+    <!-- ─────────────────────────────────────────────
+         SCRIPTS
+         ───────────────────────────────────────────── -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/docs.js"></script>
     <script src="js/messages.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9569380550956585" crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:none"
+         data-ad-client="ca-pub-9569380550956585"
+         data-ad-slot="3755658935"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-23019901-13', 'auto');
       ga('send', 'pageview');
     </script>
