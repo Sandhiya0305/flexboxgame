@@ -34,17 +34,17 @@
       <div class="nav-tabs" role="tablist" aria-label="Dashboard sections">
         <button class="nav-tab active" data-page="game"
                 role="tab" aria-selected="true" aria-controls="page-game" id="tab-game">
-          <span class="tab-icon" aria-hidden="true">🎮</span>
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
           <span>Game</span>
         </button>
         <button class="nav-tab" data-page="progress"
                 role="tab" aria-selected="false" aria-controls="page-progress" id="tab-progress">
-          <span class="tab-icon" aria-hidden="true">📊</span>
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M5 9.2h3V19H5zm5.6-4.2h2.8v14h-2.8zm5.6 8h2.8v6h-2.8z"/></svg>
           <span>Progress</span>
         </button>
         <button class="nav-tab" data-page="reference"
                 role="tab" aria-selected="false" aria-controls="page-reference" id="tab-reference">
-          <span class="tab-icon" aria-hidden="true">📚</span>
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
           <span>Reference</span>
         </button>
       </div>
@@ -109,7 +109,7 @@
 
         <!-- Settings panel: #labelSettings triggers #settings .tooltip via game.js -->
         <div id="settings">
-          <button id="labelSettings" class="icon-btn" title="Settings" aria-label="Toggle settings panel">⚙</button>
+          <button id="labelSettings" class="icon-btn" title="Settings" aria-label="Toggle settings panel"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></button>
           <div class="tooltip" role="dialog" aria-label="Settings">
             <section>
               <h4 id="labelDifficulty" class="translate">Difficulty</h4>
@@ -216,6 +216,23 @@
             </div>
             <button id="next" class="translate">Next</button>
           </div>
+
+          <nav class="sidebar-quicknav" aria-label="Quick access navigation">
+            <span class="quicknav-label">Quick Access</span>
+            <button class="quicknav-btn active" data-page="game" title="Game">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+              <span>Game</span>
+            </button>
+            <button class="quicknav-btn" data-page="progress" title="Progress">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M5 9.2h3V19H5zm5.6-4.2h2.8v14h-2.8zm5.6 8h2.8v6h-2.8z"/></svg>
+              <span>Progress</span>
+            </button>
+            <button class="quicknav-btn" data-page="reference" title="Reference">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+              <span>Reference</span>
+            </button>
+          </nav>
+
           <div id="share">
             <div class="games">
               <a target="_blank" data-title="Grid Garden" href="https://codepip.com/games/grid-garden/">
@@ -256,22 +273,22 @@
 
           <div class="stat-cards-row">
             <div class="dash-card stat-card">
-              <div class="card-icon">🏆</div>
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></div>
               <div class="card-stat-value" id="prog-solved">0</div>
               <div class="card-stat-label">Levels Solved</div>
             </div>
             <div class="dash-card stat-card">
-              <div class="card-icon">📋</div>
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M3 3h7v7H3zm0 11h7v7H3zm11-11h7v7h-7zm0 11h7v7h-7z"/></svg></div>
               <div class="card-stat-value" id="prog-total">24</div>
               <div class="card-stat-label">Total Levels</div>
             </div>
             <div class="dash-card stat-card">
-              <div class="card-icon">⚡</div>
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div>
               <div class="card-stat-value" id="prog-pct">0%</div>
               <div class="card-stat-label">Completion</div>
             </div>
             <div class="dash-card stat-card">
-              <div class="card-icon" id="prog-mode-icon">🌱</div>
+              <div class="card-icon" id="prog-mode-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20C19 20 22 3 22 3c-1 2-8 2-13 7 2 2.5 3.5 5 3.5 5 1.5-3 3.5-4.5 7-4.5z"/></svg></div>
               <div class="card-stat-value" id="prog-mode">Beginner</div>
               <div class="card-stat-label">Difficulty Mode</div>
             </div>

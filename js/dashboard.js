@@ -14,6 +14,7 @@ var dashboard = {
   init: function () {
     this.initNavTabs();
     this.initSettingsToggle();
+    this.initQuicknav();
     this.initProgressPage();
     this.initReferencePage();
     this.updateStats();
@@ -41,10 +42,23 @@ var dashboard = {
     });
   },
 
+  /* ── Sidebar quick-access navigation ────────────────── */
+
+  initQuicknav: function () {
+    $('.quicknav-btn').on('click', function () {
+      var page = $(this).data('page');
+      dashboard.showPage(page);
+    });
+  },
+
   showPage: function (page) {
     // Update ARIA state on tabs
     $('.nav-tab').removeClass('active').attr('aria-selected', 'false');
     $('.nav-tab[data-page="' + page + '"]').addClass('active').attr('aria-selected', 'true');
+
+    // Sync sidebar quicknav active state
+    $('.quicknav-btn').removeClass('active');
+    $('.quicknav-btn[data-page="' + page + '"]').addClass('active');
 
     // Switch visible panel
     $('.page').removeClass('active');
@@ -92,13 +106,17 @@ var dashboard = {
     var solved     = game.solved.length;
     var pct        = total > 0 ? Math.round((solved / total) * 100) : 0;
     var modeLabels = { easy: 'Beginner', medium: 'Intermediate', hard: 'Expert' };
-    var modeIcons  = { easy: '🌱', medium: '⚡', hard: '🔥' };
+    var modeIcons  = {
+      easy:   '<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20C19 20 22 3 22 3c-1 2-8 2-13 7 2 2.5 3.5 5 3.5 5 1.5-3 3.5-4.5 7-4.5z"/></svg>',
+      medium: '<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>',
+      hard:   '<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>'
+    };
 
     $('#prog-solved').text(solved);
     $('#prog-total').text(total);
     $('#prog-pct').text(pct + '%');
     $('#prog-mode').text(modeLabels[game.difficulty] || 'Beginner');
-    $('#prog-mode-icon').text(modeIcons[game.difficulty] || '🌱');
+    $('#prog-mode-icon').html(modeIcons[game.difficulty] || modeIcons.easy);
 
     // Rebuild the level-map grid
     var $grid = $('#progress-level-grid').empty();
