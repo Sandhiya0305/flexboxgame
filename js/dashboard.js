@@ -13,6 +13,7 @@ var dashboard = {
 
   init: function () {
     this.initNavTabs();
+    this.initSettingsToggle();
     this.initProgressPage();
     this.initReferencePage();
     this.updateStats();
@@ -25,6 +26,18 @@ var dashboard = {
     $('.nav-tab').on('click', function () {
       var page = $(this).data('page');
       dashboard.showPage(page);
+    });
+  },
+
+  /* ── Settings panel toggle ───────────────────────────── */
+
+  initSettingsToggle: function () {
+    // game.js already binds the toggle logic to #labelSettings, but the
+    // click event then bubbles up to the body handler (also in game.js)
+    // which immediately calls $('.tooltip').hide() — cancelling the show.
+    // Stopping propagation here prevents that race without touching game.js.
+    $('#labelSettings').on('click', function (e) {
+      e.stopPropagation();
     });
   },
 

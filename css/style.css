@@ -888,6 +888,14 @@ body {
   outline-offset: 1px;
 }
 
+/* Native dropdown options are rendered on the OS's white system background,
+   so we must explicitly set a dark text colour here — the select's own white
+   foreground would otherwise be invisible against that white background. */
+.nav-controls #language option {
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
 /* Settings gear button in the navbar */
 .icon-btn {
   display: inline-flex;
